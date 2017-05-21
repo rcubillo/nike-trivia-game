@@ -9,12 +9,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trivia Game</title>
+    <title>Nike Trivia Game</title>
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,114 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <script src="assets/javascript/app.js"></script>
+
+    <div id="splashscreen">
+        <div class="splashBox">
+            <h2>Welcome!</h2>
+            <p>This is a Trivia Game about Nike.</p>
+            <p>You have 60 seconds to guess 10 questions.</p>
+            <p>Click to start!</p>
+            <button type="button" id="start-btn" class="btn btn-default">Start</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>Nike Trivia!</header>
+
+        <div class="row ">Time Remaining:
+            <div id="time-remain ">60</div>
+        </div>
+
+        <div class="questions">
+            <!--question 1-->
+            <div class="ques-firstAir">
+                <div class="ques-title ">When was the first Air Max made?</div>
+                <input type="radio" name="firstAir" value="2000">2000
+                <input type="radio" name="firstAir" value="1987">1987
+                <input type="radio" name="firstAir" value="1995">1995
+                <input type="radio" name="firstAir" value="1988">1988
+            </div>
+            <!--question 2-->
+            <div class="ques-swoosh">
+                <div class="ques-title ">Nike paid design student, Carolyn Davison, how much for their Swoosh Logo?</div>
+                <input type="radio" name="swoosh" value="1000">$1000
+                <input type="radio" name="swoosh" value="13">$13
+                <input type="radio" name="swoosh" value="100">$100
+                <input type="radio" name="swoosh" value="35">$35
+            </div>
+            <!--question 3-->
+            <div class="ques-partner">
+                <div class="ques-title ">What was the first clothing brand to partner with Nike?</div>
+                <input type="radio" name="partner" value="Patta">Patta
+                <input type="radio" name="partner" value="Undefeated">Undefated
+                <input type="radio" name="partner" value="Stussy">Stussy
+                <input type="radio" name="partner" value="Diamond">Diamond Supply Co.
+            </div>
+            <!--question 4-->
+            <div class="ques-endorser">
+                <div class="ques-title ">Who was Nike's first professional athlete endorser?</div>
+                <input type="radio" name="endorser" value="mcenroe">John McEnroe
+                <input type="radio" name="endorser" value="Michael Jordan">Michael Jordan
+                <input type="radio" name="endorser" value="nastase">Ilie Năstase
+                <input type="radio" name="endorser" value="prefontaine">Steve Prefontaine
+            </div>
+            <!--question 5-->
+            <div class="ques-firstForce">
+                <div class="ques-title ">When was the first Air Force 1 made?</div>
+                <input type="radio" name="firstForce" value="1982">1982
+                <input type="radio" name="firstForce" value="1983">1983
+                <input type="radio" name="firstForce" value="1984">1984
+                <input type="radio" name="firstForce" value="1985">1985
+            </div>
+            <!--question 6-->
+            <div class="ques-airMaxDesigner">
+                <div class="ques-title">Who designed the Air Max technology?</div>
+                <input type="radio" name="airMaxDesigner" value="knight">Phil Knight
+                <input type="radio" name="airMaxDesigner" value="bowerman">Bill Bowerman
+                <input type="radio" name="airMaxDesigner" value="hatfield">Tinker Hatfield
+                <input type="radio" name="airMaxDesigner" value="hommyo">Hidefumi Hommyo
+            </div>
+            <!--question 7-->
+            <div class="ques-jordan">
+                <div class="ques-title ">When was the first Air Jordan 1's made?</div>
+                <input type="radio" name="jordan" value="2000">2000
+                <input type="radio" name="jordan" value="1987">1987
+                <input type="radio" name="jordan" value="1995">1995
+                <input type="radio" name="jordan" value="1985">1985
+            </div>
+            <!--question 8-->
+            <div class="ques-firstDesign">
+                <div class="ques-title ">Nike's first sneaker design goes under what name today?</div>
+                <input type="radio" name="firstDesign" value="air-max-1">Air Max 1
+                <input type="radio" name="firstDesign" value="cortez">Cortz
+                <input type="radio" name="firstDesign" value="structure-triax">Structure Triax
+                <input type="radio" name="firstDesign" value="air-force-1">Air Force 1
+            </div>
+            <!--question 9-->
+            <div class="ques-firstStore">
+                <div class="ques-title">Which state was Nike's first retail space was opened in?</div>
+                <input type="radio" name="firstStore" value="Oregon">Oregon
+                <input type="radio" name="firstStore" value="New York">New York
+                <input type="radio" name="firstStore" value="California">California
+                <input type="radio" name="firstStore" value="Florida">Florida
+            </div>
+            <!--question 10-->
+            <div class="ques-originalBrand">
+                <div class="ques-title ">Nike was originally a distribution company for which brand?</div>
+                <input type="radio" name="originalBrand" value="adidas">Adidas
+                <input type="radio" name="originalBrand" value="new-balance">New Balanc
+                <input type="radio" name="originalBrand" value="saucony">Saucony
+                <input type="radio" name="originalBrand" value="onitsuka-tiger">Onitsuka Tiger
+            </div>
+
+
+
+            <!-- end equestions-->
+        </div>
+
+        <!-- Main Container-->
+    </div>
+    <script src="assets/javascript/app.js "></script>
 </body>
 
 </html>

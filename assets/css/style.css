@@ -1,3 +1,30 @@
 body {
+    background-image: url('../images/airmax.jpg');
+    font-family: 'Lora', serif;
+    color: black;
+}
+
+#splashscreen {
     background-image: url('../images/sneaker_mesh_fabric.png');
+}
+
+.splashBox {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 0 auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+body .container {
+    background-image: url('../images/sneaker_mesh_fabric.png');
+    height: 100%;
+    margin-top: 5%;
+    text-align: center;
+    visibility: hidden;
+}
+
+header {
+    font-size: 60px;
+    color: black;
 }
