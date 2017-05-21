@@ -22,6 +22,7 @@
 var startGame = $("#start-btn").on('click', function() {
     $(this).parent().fadeOut(500);
     $('.container').css('visibility', 'visible');
+    countdown(60);
 });
 
 
@@ -31,17 +32,13 @@ var countdown = function(seconds) {
     var timer = setInterval(function() {
 
         seconds = seconds - 1;
+        console.log(seconds);
         $("#time-remain").html(seconds);
 
-        if (seconds === 0) {
+        if (seconds <= 0) {
             alert("Times Up!");
             clearInterval(timer);
             return;
         }
     }, 1000);
 }
-
-// // timer starts on page load
-// window.onload = function() {
-//     countdown(60)
-// }

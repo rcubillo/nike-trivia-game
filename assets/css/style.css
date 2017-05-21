@@ -5,7 +5,8 @@ body {
 }
 
 #splashscreen {
-    background-image: url('../images/sneaker_mesh_fabric.png');
+    background-image: url('../images/nike-bg.png');
+    background-repeat: no-repeat;
 }
 
 .splashBox {
@@ -16,12 +17,28 @@ body {
     font-size: 40px;
 }
 
+.timeRemain {
+    padding: 2%;
+    color: red;
+}
+
+.timeRemain #time-remain {
+    font-size: 60px;
+}
+
 body .container {
-    background-image: url('../images/sneaker_mesh_fabric.png');
+    background-image: url('../images/nike-bg.png');
     height: 100%;
     margin-top: 5%;
     text-align: center;
     visibility: hidden;
+    margin-bottom: 5%;
+    padding-bottom: 2%;
+}
+
+.ques,
+label {
+    padding: 1%;
 }
 
 header {
