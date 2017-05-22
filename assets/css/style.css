@@ -7,14 +7,22 @@ body {
 #splashscreen {
     background-image: url('../images/nike-bg.png');
     background-repeat: no-repeat;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .splashBox {
     width: 50%;
     margin: 0 auto;
-    margin-top: 0 auto;
     text-align: center;
-    font-size: 40px;
+}
+
+#answerScreen {
+    visibility: hidden;
+    background-image: url('../images/nike-bg.png');
+    background-repeat: no-repeat;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .timeRemain {
@@ -29,7 +37,6 @@ body {
 body .container {
     background-image: url('../images/nike-bg.png');
     height: 100%;
-    margin-top: 5%;
     text-align: center;
     visibility: hidden;
     margin-bottom: 5%;
