@@ -20,7 +20,6 @@
 
 // Global Variables
 
-
 var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"]
 
 
@@ -50,111 +49,94 @@ var countdown = function(seconds) {
 
 // function to grade quiz once submit button is clicked
 var gradeQuiz = $('#sub-but').on('click', function() {
+
     var correctAnswers = 0;
     var wrongAnswers = 0;
 
-    var questionOne = $('.firstAir input[name="firstAir"]').on('click', function() {
-        if ($('input:radio[name="firstAir"]:checked').val() === correctArray[0]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionOne
+    if ($('input:radio[name="firstAir"]:checked').val() === correctArray[0]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionTwo = $('.swoosh input[name="swoosh"]').on('click', function() {
-        if ($('input:radio[name="swoosh"]:checked').val() === correctArray[1]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionTwo
+    if ($('input:radio[name="swoosh"]:checked').val() === correctArray[1]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionThree = $('.partner input[name="partner"]').on('click', function() {
-        if ($('input:radio[name="partner"]:checked').val() === correctArray[2]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionThree
+    if ($('input:radio[name="partner"]:checked').val() === correctArray[2]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionFour = $('.endorser input[name="endorser"]').on('click', function() {
-        if ($('input:radio[name="endorser"]:checked').val() === correctArray[3]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionFour
+    if ($('input:radio[name="endorser"]:checked').val() === correctArray[3]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionFive = $('.firstForce input[name="firstForce"]').on('click', function() {
-        if ($('input:radio[name="firstForce"]:checked').val() === correctArray[4]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionFive
+    if ($('input:radio[name="firstForce"]:checked').val() === correctArray[4]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionSix = $('.airMaxDesigner input[name="airMaxDesigner"]').on('click', function() {
-        if ($('input:radio[name="airMaxDesigner"]:checked').val() === correctArray[5]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionSix
+    if ($('input:radio[name="airMaxDesigner"]:checked').val() === correctArray[5]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionSeven = $('.jordan input[name="jordan"]').on('click', function() {
-        if ($('input:radio[name="jordan"]:checked').val() === correctArray[6]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionSeven
+    if ($('input:radio[name="jordan"]:checked').val() === correctArray[6]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionEight = $('.firstDesign input[name="firstDesign"]').on('click', function() {
-        if ($('input:radio[name="firstDesign"]:checked').val() === correctArray[7]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionEight
+    if ($('input:radio[name="firstDesign"]:checked').val() === correctArray[7]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionNine = $('.firstStore input[name="firstStore"]').on('click', function() {
-        if ($('input:radio[name="firstStore"]:checked').val() === correctArray[8]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionNine
+    if ($('input:radio[name="firstStore"]:checked').val() === correctArray[8]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
-    var questionTen = $('.originalBrand input[name="originalBrand"]').on('click', function() {
-        if ($('input:radio[name="originalBrand"]:checked').val() === correctArray[9]) {
-            correctAnswers++;
-            console.log("this read right. Correct answers :" + correctAnswers);
-        } else {
-            wrongAnswers++;
-            console.log("Wrong! Wrong Answeres: " + wrongAnswers);
-        }
-    }); // end questionTen
+    if ($('input:radio[name="originalBrand"]:checked').val() === correctArray[9]) {
+        correctAnswers++;
+        console.log("this read right. Correct answers :" + correctAnswers);
+    } else {
+        wrongAnswers++;
+        console.log("Wrong! Wrong Answeres: " + wrongAnswers);
+    }
 
     // once submit is clicked...
-
+    // tests
+    console.log('Correct Answers: ' + correctAnswers);
+    console.log('Wrong Answers: ' + wrongAnswers);
     // fade out questions
     $('.container').fadeOut(500);
     // show answerScreen
@@ -164,8 +146,6 @@ var gradeQuiz = $('#sub-but').on('click', function() {
     // display wrongAnswers
     $('#wrongScreen').append(wrongAnswers);
 
-    // tests
-    console.log('Correct Answers: ' + correctAnswers);
-    console.log('Wrong Answers: ' + wrongAnswers);
+
 
 }); // end gradeQuiz
