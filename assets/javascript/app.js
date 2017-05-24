@@ -27,16 +27,17 @@ var radioName = ["firstAir", "swoosh", "partner", "endorser", "firstForce", "air
 // click to start
 var startGame = $("#start-btn").on('click', function() {
     $(this).parent().fadeOut(500);
-    $('.container').css('visibility', 'visible');
+    $('.container').css('display', 'block');
     countdown(60);
 });
 
 // click to restart
 var restartGame = $('#re-start').on('click', function() {
     $('#answerScreen').fadeOut(500);
-    $('.container').css('visibility', 'visible');
+    $('.container').css('display', 'block');
     countdown(60);
 });
+
 
 // function for countdown timer
 var countdown = function(seconds) {
@@ -47,7 +48,10 @@ var countdown = function(seconds) {
         $("#time-remain").html(seconds);
 
         if (seconds <= 0) {
-            alert("Times Up!");
+            $('.container').fadeOut(500);
+            $('#timesUp').fadeIn(1000).css('display', 'block');
+
+            // alert("Times Up!");
             clearInterval(timer);
             return;
         }
@@ -89,7 +93,7 @@ var gradeQuiz = $('#sub-but').on('click', function() {
     // fade out questions
     $('.container').fadeOut(500);
     // show answerScreen
-    $('#answerScreen').css('visibility', 'visible');
+    $('#answerScreen').css('display', 'block');
     // display correctAnswers
     $('#correctScreen').append(correctAnswers);
     // display wrongAnswers
