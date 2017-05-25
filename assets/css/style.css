@@ -39,7 +39,6 @@ body {
 #timesUp {
     display: none;
     background-image: url('../images/nike-bg.png');
-    opacity: 0.3;
     background-repeat: no-repeat;
     width: 25%;
     margin: 0 auto;

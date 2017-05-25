@@ -20,19 +20,62 @@
 
 // Global Variables
 
+var questions = {
+        firstAir = {
+            ques: "When was the first Air Max made?",
+            ans: ["2000", "1987", "1995", "1988"]
+        },
+        swoosh = {
+            ques: "Nike paid design student, Carolyn Davison, how much for their Swoosh Logo?",
+            ans: ["$1000", "$13", "$100", "$35"]
+        },
+        partner = {
+            ques: "What was the first clothing brand to partner with Nike?",
+            ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."]
+        },
+        endorser = {
+            quest: "Who was Nike's first professional athlete endorser?",
+            ans: ["John McEnroe", "Michael Jordan", "Ilie Nastase", "Steve Prefontaine"]
+        },
+        firstForce = {
+            quest: "When was the first Air Force 1 made?",
+            ans: ["1982", "1983", "1984", "1985"]
+        },
+        airMaxdesigner = {
+            ques: "Who designed the Air Max technology?",
+            ans: ["Phil Knight", "Bill Bowerman", "Tinker Hatfield", "Hidefumi Hommyo"]
+        },
+        jordan = {
+            ques: "When was the first Air Jordan 1's released to the public?",
+            ans: ["2000", "1987", "1995", "1985"]
+        },
+        firstDesign = {
+            ques: "Nike's first sneaker design goes under what name today?",
+            ans: ["Air Max 1", " Cortez", "Structure Triax", "Air Force 1"]
+        },
+        firstStore = {
+            ques: "Which state was Nike's first retail space was opened in?",
+            ans: ["Oregon", "New York", "California", "Florida"]
+        },
+        originalBrand = {
+            ques: "Nike was originally a distribution company for which brand?",
+            ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"]
+        }
+    } // end questions object
+
 var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"];
 var radioName = ["firstAir", "swoosh", "partner", "endorser", "firstForce", "airMaxDesigner", "jordan", "firstDesign", "firstStore", "originalBrand"];
 
 
 // click to start
 var startGame = $("#start-btn").on('click', function() {
-    $(this).parent().fadeOut(500);
+    $(this).parent().hide();
     $('.container').show();
     countdown(60);
 });
 
 // click to restart
-var restartGame = $('#re-start').on('click', function() {
+var restartGame = $('.restart').on('click', function() {
     $('#answerScreen').fadeOut(500);
     $('.container').show().fadeIn();
     console.log("when is it being clicked?");
