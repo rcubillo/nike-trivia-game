@@ -26,7 +26,7 @@ var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985
 var questions = [{
             ques: "When was the first Air Max made?",
             ans: ["2000", "1987", "1995", "1988"],
-            name: "firstAir",
+            name: "firstAirmax",
             correct: "1987",
             divClass: ".firstAirmax"
         },
@@ -35,14 +35,14 @@ var questions = [{
             ans: ["$1000", "$13", "$100", "$35"],
             name: "swoosh",
             correct: "$35",
-            divClass: ".designer"
+            divClass: ".swoosh"
         },
         {
             ques: "What was the first clothing brand to partner with Nike?",
             ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."],
-            name: "partner",
+            name: "colab",
             correct: "Stussy",
-            divClass: ".partner"
+            divClass: ".colab"
         },
         {
             ques: "Who was Nike's first professional athlete endorser?",
@@ -82,16 +82,16 @@ var questions = [{
         {
             ques: "Which state was Nike's first retail space was opened in?",
             ans: ["Oregon", "New York", "California", "Florida"],
-            name: "firstStore",
+            name: "retailStore",
             correct: "California",
-            divClass: ".firstStore"
+            divClass: ".retailStore"
         },
         {
             ques: "Nike was originally a distribution company for which brand?",
             ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"],
-            name: "originalBrand",
+            name: "distribution",
             correct: "Onitsuka Tiger",
-            divClass: ".originalBrand"
+            divClass: ".distribution"
         }
     ] // end questions object
 
@@ -106,31 +106,27 @@ var startGame = $("#start-btn").on('click', function() {
 });
 
 // click to restart
-var restartGame = $('#re-start').on('click', function() {
-    $('#answerScreen').fadeOut(500);
-    $('.container').show().fadeIn();
-    console.log("when is it being clicked?");
-    countdown(60);
-});
-
-// click to restart
 var restartGame = $('#wrong-start').on('click', function() {
     $('#timesUp').fadeOut(500);
     $('.container').show().fadeIn();
     $('input:radio').prop('check', false);
     console.log("when is it being clicked?");
+    questionDisplay();
     countdown(60);
 });
 
 // function for displaying questions
 var questionDisplay = function() {
-
+    $(".questions :not('#sub-but')").empty();
     // loops through the 10 questions 
     for (var j = 0; j < 10; j++) {
+        $('.questions').prepend('<div class="' + questions[j].name + '"></div>');
         $(questions[j].divClass).append('<div class ="ques-title">' + questions[j].ques + '</div>');
-        // loops through answers for each radio button
+        console.log("question: " + questions[j].ques)
+            // loops through answers for each radio button
         for (var i = 0; i <= 3; i++) {
-            $(questions[j].divClass).append('<input type="radio"  name="' + questions[j].name + '" value="' + questions[j].ans[i] + '"/><label for="' + labels[i] + '">' + questions[j].ans[i] + '</label>')
+            $(questions[j].divClass).append('<input type="radio"  name="' + questions[j].name + '" value="' + questions[j].ans[i] + '"/><label for="' + labels[i] + '">' + questions[j].ans[i] + '</label>');
+            console.log(i + questions[j].ans[i]);
         }
     }
 }
@@ -140,8 +136,8 @@ var questionDisplay = function() {
 var countdown = function(seconds) {
 
     var timer = setInterval(function() {
-
         seconds = seconds - 1;
+        console.log(seconds);
         $("#time-remain").html(seconds);
 
         if (seconds <= 0) {
