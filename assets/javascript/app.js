@@ -20,49 +20,49 @@
 
 // Global Variables
 
-var questions = {
-        firstAir: {
+var questions = [{
             ques: "When was the first Air Max made?",
             ans: ["2000", "1987", "1995", "1988"]
         },
-        swoosh: {
+        {
             ques: "Nike paid design student, Carolyn Davison, how much for their Swoosh Logo?",
             ans: ["$1000", "$13", "$100", "$35"]
         },
-        partner: {
+        {
             ques: "What was the first clothing brand to partner with Nike?",
             ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."]
         },
-        endorser: {
-            quest: "Who was Nike's first professional athlete endorser?",
+        {
+            ques: "Who was Nike's first professional athlete endorser?",
             ans: ["John McEnroe", "Michael Jordan", "Ilie Nastase", "Steve Prefontaine"]
         },
-        firstForce: {
-            quest: "When was the first Air Force 1 made?",
+        {
+            ques: "When was the first Air Force 1 made?",
             ans: ["1982", "1983", "1984", "1985"]
         },
-        airMaxdesigner: {
+        {
             ques: "Who designed the Air Max technology?",
             ans: ["Phil Knight", "Bill Bowerman", "Tinker Hatfield", "Hidefumi Hommyo"]
         },
-        jordan: {
+        {
             ques: "When was the first Air Jordan 1's released to the public?",
             ans: ["2000", "1987", "1995", "1985"]
         },
-        firstDesign: {
+        {
             ques: "Nike's first sneaker design goes under what name today?",
             ans: ["Air Max 1", " Cortez", "Structure Triax", "Air Force 1"]
         },
-        firstStore: {
+        {
             ques: "Which state was Nike's first retail space was opened in?",
             ans: ["Oregon", "New York", "California", "Florida"]
         },
-        originalBrand: {
+        {
             ques: "Nike was originally a distribution company for which brand?",
             ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"]
         }
-    } // end questions object
+    ] // end questions object
 
+var labels = ["first", "second", "third", "forth"];
 var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"];
 var radioName = ["firstAir", "swoosh", "partner", "endorser", "firstForce", "airMaxDesigner", "jordan", "firstDesign", "firstStore", "originalBrand"];
 
@@ -72,6 +72,7 @@ var startGame = $("#start-btn").on('click', function() {
     $(this).parent().hide();
     $('.container').show();
     countdown(60);
+    questionDisplay();
 });
 
 // click to restart
@@ -90,6 +91,52 @@ var restartGame = $('#wrong-start').on('click', function() {
     console.log("when is it being clicked?");
     countdown(60);
 });
+
+// function for displaying questions
+var questionDisplay = function() {
+
+    $('.firstAirmax').append('<div class ="ques-title">' + questions[0].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.firstAirmax').append('<input type="radio" value="' + questions[0].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[0].ans[i] + '</label>')
+    };
+    $('.designer').append('<div class ="ques-title">' + questions[1].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.designer').append('<input type="radio" value="' + questions[1].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[1].ans[i] + '</label>')
+    };
+    $('.colab').append('<div class ="ques-title">' + questions[2].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.colab').append('<input type="radio" value="' + questions[2].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[2].ans[i] + '</label>')
+    };
+    $('.endorser').append('<div class ="ques-title">' + questions[3].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.endorser').append('<input type="radio" value="' + questions[3].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[3].ans[i] + '</label>')
+    };
+    $('.airForce').append('<div class ="ques-title">' + questions[4].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.airForce').append('<input type="radio" value="' + questions[4].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[4].ans[i] + '</label>')
+    };
+    $('.airMaxDesigner').append('<div class ="ques-title">' + questions[5].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.airMaxDesigner').append('<input type="radio" value="' + questions[5].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[5].ans[i] + '</label>')
+    };
+    $('.jordan').append('<div class ="ques-title">' + questions[6].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.jordan').append('<input type="radio" value="' + questions[6].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[6].ans[i] + '</label>')
+    };
+    $('.firstDesign').append('<div class ="ques-title">' + questions[7].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.firstDesign').append('<input type="radio" value="' + questions[7].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[7].ans[i] + '</label>')
+    };
+    $('.retailStore').append('<div class ="ques-title">' + questions[8].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.retailStore').append('<input type="radio" value="' + questions[8].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[8].ans[i] + '</label>')
+    };
+    $('.distribution').append('<div class ="ques-title">' + questions[9].ques + '</div>');
+    for (var i = 0; i <= 3; i++) {
+        $('.distribution').append('<input type="radio" value="' + questions[9].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[9].ans[i] + '</label>')
+    };
+
+}
 
 
 // function for countdown timer
