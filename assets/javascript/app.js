@@ -21,43 +21,43 @@
 // Global Variables
 
 var questions = {
-        firstAir = {
+        firstAir: {
             ques: "When was the first Air Max made?",
             ans: ["2000", "1987", "1995", "1988"]
         },
-        swoosh = {
+        swoosh: {
             ques: "Nike paid design student, Carolyn Davison, how much for their Swoosh Logo?",
             ans: ["$1000", "$13", "$100", "$35"]
         },
-        partner = {
+        partner: {
             ques: "What was the first clothing brand to partner with Nike?",
             ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."]
         },
-        endorser = {
+        endorser: {
             quest: "Who was Nike's first professional athlete endorser?",
             ans: ["John McEnroe", "Michael Jordan", "Ilie Nastase", "Steve Prefontaine"]
         },
-        firstForce = {
+        firstForce: {
             quest: "When was the first Air Force 1 made?",
             ans: ["1982", "1983", "1984", "1985"]
         },
-        airMaxdesigner = {
+        airMaxdesigner: {
             ques: "Who designed the Air Max technology?",
             ans: ["Phil Knight", "Bill Bowerman", "Tinker Hatfield", "Hidefumi Hommyo"]
         },
-        jordan = {
+        jordan: {
             ques: "When was the first Air Jordan 1's released to the public?",
             ans: ["2000", "1987", "1995", "1985"]
         },
-        firstDesign = {
+        firstDesign: {
             ques: "Nike's first sneaker design goes under what name today?",
             ans: ["Air Max 1", " Cortez", "Structure Triax", "Air Force 1"]
         },
-        firstStore = {
+        firstStore: {
             ques: "Which state was Nike's first retail space was opened in?",
             ans: ["Oregon", "New York", "California", "Florida"]
         },
-        originalBrand = {
+        originalBrand: {
             ques: "Nike was originally a distribution company for which brand?",
             ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"]
         }
@@ -75,9 +75,18 @@ var startGame = $("#start-btn").on('click', function() {
 });
 
 // click to restart
-var restartGame = $('.restart').on('click', function() {
+var restartGame = $('#re-start').on('click', function() {
     $('#answerScreen').fadeOut(500);
     $('.container').show().fadeIn();
+    console.log("when is it being clicked?");
+    countdown(60);
+});
+
+// click to restart
+var restartGame = $('#wrong-start').on('click', function() {
+    $('#timesUp').fadeOut(500);
+    $('.container').show().fadeIn();
+    $('input:radio').prop('check', false);
     console.log("when is it being clicked?");
     countdown(60);
 });
@@ -93,6 +102,25 @@ var countdown = function(seconds) {
 
         if (seconds <= 0) {
             $('.container').fadeOut(500);
+            var correctAnswers = 0;
+            var wrongAnswers = 0;
+            var unAnswered = 0;
+
+            // loop through correctArray & radioName to match html elements & answers
+            for (var i = 0; i < 10; i++) {
+
+                if ($('input:radio[name="' + radioName[i] + '"]:checked').val() === correctArray[i]) {
+
+                    correctAnswers++;
+                    console.log("correct!: " + correctAnswers);
+                } else {
+                    wrongAnswers++;
+                    console.log("correct!: " + wrongAnswers);
+                };
+            }
+            $('#correctTimesUp').append(correctAnswers);
+            // display wrongAnswers
+            $('#wrongTimesUp').append(wrongAnswers);
             $('#timesUp').fadeIn(1000).show();
 
             // alert("Times Up!");
