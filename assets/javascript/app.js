@@ -20,9 +20,6 @@
 
 // Global Variables
 
-var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"];
-
-
 var questions = [{
             ques: "When was the first Air Max made?",
             ans: ["2000", "1987", "1995", "1988"],
@@ -105,16 +102,6 @@ var startGame = $("#start-btn").on('click', function() {
     questionDisplay();
 });
 
-// click to restart
-var restartGame = $('#wrong-start').on('click', function() {
-    $('#timesUp').fadeOut(500);
-    $('.container').show().fadeIn();
-    $('input:radio').prop('check', false);
-    console.log("when is it being clicked?");
-    questionDisplay();
-    countdown(60);
-});
-
 // function for displaying questions
 var questionDisplay = function() {
     $(".questions :not('#sub-but')").empty();
@@ -122,11 +109,9 @@ var questionDisplay = function() {
     for (var j = 0; j < 10; j++) {
         $('.questions').prepend('<div class="' + questions[j].name + '"></div>');
         $(questions[j].divClass).append('<div class ="ques-title">' + questions[j].ques + '</div>');
-        console.log("question: " + questions[j].ques)
-            // loops through answers for each radio button
+        // loops through answers for each radio button
         for (var i = 0; i <= 3; i++) {
             $(questions[j].divClass).append('<input type="radio"  name="' + questions[j].name + '" value="' + questions[j].ans[i] + '"/><label for="' + labels[i] + '">' + questions[j].ans[i] + '</label>');
-            console.log(i + questions[j].ans[i]);
         }
     }
 }
@@ -137,7 +122,6 @@ var countdown = function(seconds) {
 
     var timer = setInterval(function() {
         seconds = seconds - 1;
-        console.log(seconds);
         $("#time-remain").html(seconds);
 
         if (seconds <= 0) {
@@ -189,17 +173,13 @@ var gradeQuiz = $('#sub-but').on('click', function() {
         if ($('input:radio[name="' + questions[i].name + '"]:checked').val() === questions[i].correct) {
 
             correctAnswers++;
-            console.log("this is correct! number:" + i)
         } else {
             wrongAnswers++;
-            console.log("this is wrong! number:" + i)
         };
     };
 
     // once submit is clicked...
     // tests
-    console.log('Correct Answers: ' + correctAnswers);
-    console.log('Wrong Answers: ' + wrongAnswers);
     // stop timer
     countdown();
     // fade out questions
