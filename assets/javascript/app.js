@@ -20,52 +20,82 @@
 
 // Global Variables
 
+var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"];
+
+
 var questions = [{
             ques: "When was the first Air Max made?",
-            ans: ["2000", "1987", "1995", "1988"]
+            ans: ["2000", "1987", "1995", "1988"],
+            name: "firstAir",
+            correct: "1987",
+            divClass: ".firstAirmax"
         },
         {
             ques: "Nike paid design student, Carolyn Davison, how much for their Swoosh Logo?",
-            ans: ["$1000", "$13", "$100", "$35"]
+            ans: ["$1000", "$13", "$100", "$35"],
+            name: "swoosh",
+            correct: "$35",
+            divClass: ".designer"
         },
         {
             ques: "What was the first clothing brand to partner with Nike?",
-            ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."]
+            ans: ["Patta", "Undefeated", "Stussy", "Diamond Supply Co."],
+            name: "partner",
+            correct: "Stussy",
+            divClass: ".partner"
         },
         {
             ques: "Who was Nike's first professional athlete endorser?",
-            ans: ["John McEnroe", "Michael Jordan", "Ilie Nastase", "Steve Prefontaine"]
+            ans: ["John McEnroe", "Michael Jordan", "Ilie Nastase", "Steve Prefontaine"],
+            name: "endorser",
+            correct: "Ilie Nastase",
+            divClass: ".endorser"
         },
         {
             ques: "When was the first Air Force 1 made?",
-            ans: ["1982", "1983", "1984", "1985"]
+            ans: ["1982", "1983", "1984", "1985"],
+            name: "firstForce",
+            correct: "1982",
+            divClass: ".firstForce"
         },
         {
             ques: "Who designed the Air Max technology?",
-            ans: ["Phil Knight", "Bill Bowerman", "Tinker Hatfield", "Hidefumi Hommyo"]
+            ans: ["Phil Knight", "Bill Bowerman", "Tinker Hatfield", "Hidefumi Hommyo"],
+            name: "airMaxDesigner",
+            correct: "Tinker Hatfield",
+            divClass: ".airMaxDesigner"
         },
         {
             ques: "When was the first Air Jordan 1's released to the public?",
-            ans: ["2000", "1987", "1995", "1985"]
+            ans: ["2000", "1987", "1995", "1985"],
+            name: "jordan",
+            correct: "1985",
+            divClass: ".jordan"
         },
         {
             ques: "Nike's first sneaker design goes under what name today?",
-            ans: ["Air Max 1", " Cortez", "Structure Triax", "Air Force 1"]
+            ans: ["Air Max 1", " Cortez", "Structure Triax", "Air Force 1"],
+            name: "firstDesign",
+            correct: "Cortez",
+            divClass: ".firstDesign"
         },
         {
             ques: "Which state was Nike's first retail space was opened in?",
-            ans: ["Oregon", "New York", "California", "Florida"]
+            ans: ["Oregon", "New York", "California", "Florida"],
+            name: "firstStore",
+            correct: "California",
+            divClass: ".firstStore"
         },
         {
             ques: "Nike was originally a distribution company for which brand?",
-            ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"]
+            ans: ["Adidas", "New Balance", "Saucony", "Onitsuka Tiger"],
+            name: "originalBrand",
+            correct: "Onitsuka Tiger",
+            divClass: ".originalBrand"
         }
     ] // end questions object
 
 var labels = ["first", "second", "third", "forth"];
-var correctArray = ["1987", "35", "stussy", "nastase", "1982", "hatfield", "1985", "cortez", "california", "onitsuka-tiger"];
-var radioName = ["firstAir", "swoosh", "partner", "endorser", "firstForce", "airMaxDesigner", "jordan", "firstDesign", "firstStore", "originalBrand"];
-
 
 // click to start
 var startGame = $("#start-btn").on('click', function() {
@@ -95,47 +125,14 @@ var restartGame = $('#wrong-start').on('click', function() {
 // function for displaying questions
 var questionDisplay = function() {
 
-    $('.firstAirmax').append('<div class ="ques-title">' + questions[0].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.firstAirmax').append('<input type="radio" value="' + questions[0].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[0].ans[i] + '</label>')
-    };
-    $('.designer').append('<div class ="ques-title">' + questions[1].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.designer').append('<input type="radio" value="' + questions[1].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[1].ans[i] + '</label>')
-    };
-    $('.colab').append('<div class ="ques-title">' + questions[2].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.colab').append('<input type="radio" value="' + questions[2].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[2].ans[i] + '</label>')
-    };
-    $('.endorser').append('<div class ="ques-title">' + questions[3].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.endorser').append('<input type="radio" value="' + questions[3].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[3].ans[i] + '</label>')
-    };
-    $('.airForce').append('<div class ="ques-title">' + questions[4].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.airForce').append('<input type="radio" value="' + questions[4].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[4].ans[i] + '</label>')
-    };
-    $('.airMaxDesigner').append('<div class ="ques-title">' + questions[5].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.airMaxDesigner').append('<input type="radio" value="' + questions[5].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[5].ans[i] + '</label>')
-    };
-    $('.jordan').append('<div class ="ques-title">' + questions[6].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.jordan').append('<input type="radio" value="' + questions[6].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[6].ans[i] + '</label>')
-    };
-    $('.firstDesign').append('<div class ="ques-title">' + questions[7].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.firstDesign').append('<input type="radio" value="' + questions[7].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[7].ans[i] + '</label>')
-    };
-    $('.retailStore').append('<div class ="ques-title">' + questions[8].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.retailStore').append('<input type="radio" value="' + questions[8].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[8].ans[i] + '</label>')
-    };
-    $('.distribution').append('<div class ="ques-title">' + questions[9].ques + '</div>');
-    for (var i = 0; i <= 3; i++) {
-        $('.distribution').append('<input type="radio" value="' + questions[9].ans[i] + '"/><label for="' + labels[i] + '"/>' + questions[9].ans[i] + '</label>')
-    };
-
+    // loops through the 10 questions 
+    for (var j = 0; j < 10; j++) {
+        $(questions[j].divClass).append('<div class ="ques-title">' + questions[j].ques + '</div>');
+        // loops through answers for each radio button
+        for (var i = 0; i <= 3; i++) {
+            $(questions[j].divClass).append('<input type="radio"  name="' + questions[j].name + '" value="' + questions[j].ans[i] + '"/><label for="' + labels[i] + '">' + questions[j].ans[i] + '</label>')
+        }
+    }
 }
 
 
@@ -156,13 +153,13 @@ var countdown = function(seconds) {
             // loop through correctArray & radioName to match html elements & answers
             for (var i = 0; i < 10; i++) {
 
-                if ($('input:radio[name="' + radioName[i] + '"]:checked').val() === correctArray[i]) {
+                if ($('input:radio[name="' + questions[i].name + '"]:checked').val() === questions[i].correct) {
 
                     correctAnswers++;
-                    console.log("correct!: " + correctAnswers);
+                    console.log("this is correct! number:" + i)
                 } else {
                     wrongAnswers++;
-                    console.log("correct!: " + wrongAnswers);
+                    console.log("this is wrong! number:" + i)
                 };
             }
             $('#correctTimesUp').append(correctAnswers);
@@ -193,13 +190,13 @@ var gradeQuiz = $('#sub-but').on('click', function() {
     // loop through correctArray & radioName to match html elements & answers
     for (var i = 0; i < 10; i++) {
 
-        if ($('input:radio[name="' + radioName[i] + '"]:checked').val() === correctArray[i]) {
+        if ($('input:radio[name="' + questions[i].name + '"]:checked').val() === questions[i].correct) {
 
             correctAnswers++;
-            console.log("correct!: " + correctAnswers);
+            console.log("this is correct! number:" + i)
         } else {
             wrongAnswers++;
-            console.log("correct!: " + wrongAnswers);
+            console.log("this is wrong! number:" + i)
         };
     };
 

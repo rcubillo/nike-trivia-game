@@ -19,6 +19,12 @@ body {
     margin-top: 40%;
 }
 
+.splashBox2 {
+    margin: 0 auto;
+    text-align: center;
+    padding: 4%;
+}
+
 .wrongBox {
     margin: 0 auto;
     text-align: center;
