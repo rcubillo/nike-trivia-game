@@ -18,6 +18,8 @@
 // HTML is updated with users score
 // Score includes: time spent, answers correct, and answers wrong
 
+// --------------------------------------------------------------- 
+
 // Global Variables
 
 var questions = [{
