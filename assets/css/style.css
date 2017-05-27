@@ -1,15 +1,29 @@
 body {
     background-image: url('../images/airmax.jpg');
-    font-family: 'Lora', serif;
+    font-family: 'Anton', sans-serif;
     color: black;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 60px;
+    color: orange;
 }
 
 #splashscreen {
     background-image: url('../images/nike-bg.png');
     background-repeat: no-repeat;
-    width: 28%;
+    width: 35%;
     margin: 0 auto;
     border-radius: 5px;
+}
+
+.black-background {
+    background-color: #000000;
+}
+
+.white {
+    color: #ffffff;
 }
 
 .splashBox {
@@ -31,11 +45,15 @@ body {
     padding: 4%;
 }
 
+label {
+    color: orange;
+}
+
 #answerScreen {
     display: none;
     background-image: url('../images/nike-bg.png');
     background-repeat: no-repeat;
-    width: 25%;
+    width: 40%;
     margin: 0 auto;
     padding: 2%;
     margin-top: 15%;
@@ -46,11 +64,15 @@ body {
     display: none;
     background-image: url('../images/nike-bg.png');
     background-repeat: no-repeat;
-    width: 25%;
+    width: 35%;
     margin: 0 auto;
     padding: 2%;
     margin-top: 15%;
     font-size: 21px;
+}
+
+.up {
+    color: red;
 }
 
 .timeRemain {
@@ -71,6 +93,8 @@ body .container {
     padding-bottom: 2%;
     margin-top: 5%;
     border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .questions {
