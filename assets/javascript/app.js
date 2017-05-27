@@ -2,25 +2,23 @@
 // Sneaker      //
 //      Trivia //
 /////////////////
-// 
-// Pseudo Code - by Narin Sundarabhaya
-// 
-// A basic Multiple Choice Trivia Game
-// 
-// Click to Start
-// 
-// Timer begins at 60 seconds and countdown
-// 
-// Player goes through all 10 questions
-// player can only guess one answer per question
-// 
-// Once completed, player submit's answers
-// HTML is updated with users score
-// Score includes: time spent, answers correct, and answers wrong
+
+/* Pseudo Code - by Narin Sundarabhaya
+
+A basic Multiple Choice Trivia Game
+ 
+Click to Start
+
+Timer begins at 60 seconds and countdown
+
+Player goes through all 10 questions
+player can only guess one answer per question
+
+Once completed, player submit's answers
+HTML is updated with users score
+Score includes: time spent, answers correct, and answers wrong */
 
 // --------------------------------------------------------------- 
-
-// Global Variables
 
 var questions = [{
             ques: "When was the first Air Max made?",
@@ -96,7 +94,7 @@ var questions = [{
 
 var labels = ["first", "second", "third", "forth"];
 
-// click to start
+// click to start then display quesions
 var startGame = $("#start-btn").on('click', function() {
     $(this).parent().hide();
     $('.container').show();
