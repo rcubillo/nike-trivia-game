@@ -93,6 +93,11 @@ var questions = [{
     ] // end questions object
 
 var labels = ["first", "second", "third", "forth"];
+let currentQuestion = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+let wrongArray = [];
+let unAnswered = 0;
 
 // click to start then display quesions
 var startGame = $("#start-btn").on('click', function() {
@@ -104,19 +109,18 @@ var startGame = $("#start-btn").on('click', function() {
 
 // function for displaying questions
 var questionDisplay = function() {
+    $('.questions .invisible').hide();
+    $('.questions firstAirMax').show();
     $(".questions :not('#sub-but')").empty();
+
     // loops through the 10 questions 
-    for (var j = 0; j < 10; j++) {
-        $('.questions').prepend('<div class="' + questions[j].name + '"></div>');
-        $(questions[j].divClass).append('<div class ="ques-title">' + questions[j].ques + '</div>');
-        // loops through answers for each radio button
-        for (var i = 0; i <= 3; i++) {
-            $(questions[j].divClass).append('<input type="radio"  name="' + questions[j].name + '" value="' + questions[j].ans[i] + '"/><label for="' + labels[i] + '">' + questions[j].ans[i] + '</label>');
-        }
-        $('.questions').prepend('<hr />');
+    $('.questions').prepend('<div class="' + questions[currentQuestion].name + '"></div>');
+    $(questions[currentQuestion].divClass).append('<div class ="ques-title">' + questions[currentQuestion].ques + '</div>');
+    // loops through answers for each radio button
+    for (var i = 0; i <= 3; i++) {
+        $(questions[currentQuestion].divClass).append('<input type="radio"  name="' + questions[currentQuestion].name + '" value="' + questions[currentQuestion].ans[i] + '"/><label for="' + labels[i] + '">' + questions[currentQuestion].ans[i] + '</label>');
     }
 }
-
 
 // function for countdown timer
 var countdown = function(seconds) {
@@ -125,12 +129,10 @@ var countdown = function(seconds) {
         seconds = seconds - 1;
         $("#time-remain").html(seconds);
 
-        if (seconds <= 0) {
+        if (currentQuestion > 9) {
+            clearInterval(timer);
+        } else if (seconds <= 0) {
             $('.container').fadeOut(500);
-            var correctAnswers = 0;
-            var wrongAnswers = 0;
-            var unAnswered = 0;
-
             // loop through correctArray & radioName to match html elements & answers
             for (var i = 0; i < 10; i++) {
 
@@ -146,6 +148,9 @@ var countdown = function(seconds) {
             $('#correctTimesUp').append(correctAnswers);
             // display wrongAnswers
             $('#wrongTimesUp').append(wrongAnswers);
+            for (var k = 0; k < wrongArray.length; k++) {
+                $('#wrongAnswers').append("<p>" + wrongArray[k].ques + "\n The Correct Answer Was: " + wrongArray[k].correct + "</p>");
+            }
             $('#timesUp').fadeIn(1000).show();
 
             // alert("Times Up!");
@@ -154,42 +159,52 @@ var countdown = function(seconds) {
         }
     }, 1000);
 
-    // click event for submit button to stop timer
-    $('#sub-but').on('click', function() {
-        clearInterval(timer);
-    })
+
+
 }; // end countdown
+
+// var nextQues = $('#next-but').on('click', function() {
+
+// })
 
 
 // function to grade quiz once submit button is clicked
 var gradeQuiz = $('#sub-but').on('click', function() {
+    currentQuestion++;
+    if (currentQuestion <= 8) {
+        tallyScore();
+        questionDisplay();
+    } else if (currentQuestion <= 9) {
+        tallyScore();
+        $("#sub-but").prop('value', 'Submit');
+        questionDisplay();
 
-    var correctAnswers = 0;
-    var wrongAnswers = 0;
-    var unAnswered = 0;
+    } else if (currentQuestion === 10) {
+        // once submit is clicked...
+        // tests
+        // stop timer
+        countdown();
+        // fade out questions
+        $('.container').fadeOut(500);
+        // show answerScreen
+        $('#answerScreen').show();
+        $('#correctScreen').append(correctAnswers);
+        $('#wrongScreen').append(wrongAnswers);
+        // display correctAnswers
+        // $('#correctScreen').append(correctAnswers);
+        // display wrongAnswers
+        for (var k = 0; k < wrongArray.length; k++) {
+            $('#wrongAnswers').append("<p>" + wrongArray[k].ques + "\n The Correct Answer Was: " + wrongArray[k].correct + "</p>");
+        }
 
-    // loop through correctArray & radioName to match html elements & answers
-    for (var i = 0; i < 10; i++) {
-
-        if ($('input:radio[name="' + questions[i].name + '"]:checked').val() === questions[i].correct) {
-
-            correctAnswers++;
-        } else {
-            wrongAnswers++;
-        };
-    };
-
-    // once submit is clicked...
-    // tests
-    // stop timer
-    countdown();
-    // fade out questions
-    $('.container').fadeOut(500);
-    // show answerScreen
-    $('#answerScreen').show();
-    // display correctAnswers
-    $('#correctScreen').append(correctAnswers);
-    // display wrongAnswers
-    $('#wrongScreen').append(wrongAnswers);
-
+    }
 }); // end gradeQuiz
+
+function tallyScore() {
+    if ($('input:radio[name="' + questions[currentQuestion - 1].name + '"]:checked').val() === questions[currentQuestion - 1].correct) {
+        correctAnswers++;
+    } else {
+        wrongAnswers++;
+        wrongArray.push(questions[currentQuestion - 1]);
+    };
+};

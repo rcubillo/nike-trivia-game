@@ -29,7 +29,6 @@
         <div class="splashBox">
             <h3>Welcome to</h3>
             <h1>Nike Trivia!</h1>
-            <hr />
             <p>You have 60 seconds to guess 10 questions.</p>
             <br />
             <p>Click To Start</p>
@@ -40,9 +39,14 @@
     <div id="answerScreen">
         <div class="splashBox2">
             <h2>Lets see how you did</h2>
-            <hr />
             <p id="correctScreen">Correct Answers: </p>
             <p id="wrongScreen">Wrong Answers: </p>
+            <h2>Here are the Answers</h2>
+            <p id="wrongAnswers"></p>
+
+            <p>Click To Start Over</p>
+            <button type="button" id="restart-btn" class="btn btn-primary black-background white">JUST DO IT.</button>
+            <p></p>
         </div>
     </div>
 
@@ -51,9 +55,16 @@
         <div class="wrongBox">
             <h2 class="up">Times Up!</h2>
             <hr />
-            <p>Here's youre score:</p>
+            <p>Here's your score:</p>
             <p id="correctTimesUp">Correct Answers: </p>
             <p id="wrongTimesUp">Wrong Answers: </p>
+
+            <h2>Here are the Answers</h2>
+            <p id="wrongAnswers"></p>
+
+            <p>Click To Start Over</p>
+            <button type="button" id="start-btn" class="btn btn-primary black-background white">JUST DO IT.</button>
+
         </div>
     </div>
 
@@ -66,7 +77,18 @@
 
         <div class="questions">
 
-            <button type="button" class="btn btn-primary black-background white" id="sub-but">Submit</button>
+            <div class="invisible firstAirMax"></div>
+            <div class="invisible swoosh"></div>
+            <div class="invisible colab"></div>
+            <div class="invisible endorser"></div>
+            <div class="invisible firstForce"></div>
+            <div class="invisible airMaxDesigner"></div>
+            <div class="invisible jordan"></div>
+            <div class="invisible cortez"></div>
+            <div class="invisible retailStore"></div>
+            <div class="invisible distribution"></div>
+
+            <button type="button" class="btn btn-primary black-background white" id="sub-but">Next</button>
 
             <!-- end equestions-->
         </div>
