@@ -90,6 +90,7 @@ label {
 
 body .container {
     background-image: url('../images/nike-bg.png');
+    background-repeat: no-repeat;
     height: 100%;
     text-align: center;
     display: none;

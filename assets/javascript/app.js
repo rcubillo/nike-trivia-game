@@ -118,7 +118,7 @@ var questionDisplay = function() {
     $(questions[currentQuestion].divClass).append('<div class ="ques-title">' + questions[currentQuestion].ques + '</div>');
     // loops through answers for each radio button
     for (var i = 0; i <= 3; i++) {
-        $(questions[currentQuestion].divClass).append('<input type="radio"  name="' + questions[currentQuestion].name + '" value="' + questions[currentQuestion].ans[i] + '"/><label for="' + labels[i] + '">' + questions[currentQuestion].ans[i] + '</label>');
+        $(questions[currentQuestion].divClass).append('<button type="button" class="btn btn-primary btn-lg" name="' + questions[currentQuestion].name + '" value="' + questions[currentQuestion].ans[i] + '/></button>');
     }
 }
 
@@ -163,11 +163,6 @@ var countdown = function(seconds) {
 
 }; // end countdown
 
-// var nextQues = $('#next-but').on('click', function() {
-
-// })
-
-
 // function to grade quiz once submit button is clicked
 var gradeQuiz = $('#sub-but').on('click', function() {
     currentQuestion++;
@@ -196,7 +191,6 @@ var gradeQuiz = $('#sub-but').on('click', function() {
         for (var k = 0; k < wrongArray.length; k++) {
             $('#wrongAnswers').append("<p>" + wrongArray[k].ques + "\n The Correct Answer Was: " + wrongArray[k].correct + "</p>");
         }
-
     }
 }); // end gradeQuiz
 
