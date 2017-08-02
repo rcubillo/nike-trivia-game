@@ -20,7 +20,7 @@ Score includes: time spent, answers correct, and answers wrong */
 
 // --------------------------------------------------------------- 
 
-var questions = [{
+const questions = [{
             ques: "When was the first Air Max made?",
             ans: ["2000", "1987", "1995", "1988"],
             name: "firstAirmax",
@@ -100,7 +100,7 @@ let wrongArray = [];
 let unAnswered = 0;
 
 // click to start then display quesions
-var startGame = $("#start-btn").on('click', function() {
+const startGame = $("#start-btn").on('click', function() {
     $(this).parent().hide();
     $('.container').show();
     countdown(60);
@@ -118,7 +118,9 @@ var questionDisplay = function() {
     $(questions[currentQuestion].divClass).append('<div class ="ques-title">' + questions[currentQuestion].ques + '</div>');
     // loops through answers for each radio button
     for (var i = 0; i <= 3; i++) {
-        $(questions[currentQuestion].divClass).append('<button type="button" class="btn btn-primary btn-lg" name="' + questions[currentQuestion].name + '" value="' + questions[currentQuestion].ans[i] + '/></button>');
+        // console.log(questions[currentQuestion].ans[i]);
+        
+        $(questions[currentQuestion].divClass).append('<input type="radio"  name="' + questions[currentQuestion].ans[i]+ '" value="' + questions[currentQuestion].ans[i] + '"/><label for="' + labels[i] + '">' + questions[currentQuestion].ans[i] + '</label>');
     }
 }
 
@@ -136,7 +138,7 @@ var countdown = function(seconds) {
             // loop through correctArray & radioName to match html elements & answers
             for (var i = 0; i < 10; i++) {
 
-                if ($('input:radio[name="' + questions[i].name + '"]:checked').val() === questions[i].correct) {
+                if ($('input:radio[name="' + questions[currentQuestion].name + '"]:checked').val() === questions[currentQuestion].correct) {
 
                     correctAnswers++;
                     console.log("this is correct! number:" + i)
@@ -165,18 +167,22 @@ var countdown = function(seconds) {
 
 // function to grade quiz once submit button is clicked
 var gradeQuiz = $('#sub-but').on('click', function() {
-    currentQuestion++;
-    if (currentQuestion <= 8) {
+    if (currentQuestion === 0 ) {
         tallyScore();
         questionDisplay();
-    } else if (currentQuestion <= 9) {
+    } else if (currentQuestion > 0 && currentQuestion < 9) {
+        currentQuestion++
+        tallyScore();
+        questionDisplay();
+    } else if (currentQuestion < 10) {
+        currentQuestion++
         tallyScore();
         $("#sub-but").prop('value', 'Submit');
         questionDisplay();
 
     } else if (currentQuestion === 10) {
-        // once submit is clicked...
-        // tests
+        currentQuestion++
+        // once finshed
         // stop timer
         countdown();
         // fade out questions
@@ -195,7 +201,9 @@ var gradeQuiz = $('#sub-but').on('click', function() {
 }); // end gradeQuiz
 
 function tallyScore() {
-    if ($('input:radio[name="' + questions[currentQuestion - 1].name + '"]:checked').val() === questions[currentQuestion - 1].correct) {
+    console.log(currentQuestion);
+    console.log($('input:radio[name="' + questions[currentQuestion].name + '"]:checked').val());
+    if ($('input:radio[name="' + questions[currentQuestion].name + '"]:checked').val() === questions[currentQuestion].correct) {
         correctAnswers++;
     } else {
         wrongAnswers++;
