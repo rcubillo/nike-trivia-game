@@ -1,8 +1,23 @@
-# trivia-game
-UCLA Coding Bootcamp Homework #4
+# Nike Trivia Game
 
-You'll create a trivia form with multiple choice or true/false options (your choice).
-The player will have a limited amount of time to finish the quiz.
-The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
-Don't let the player pick more than one answer per question.
-Don't forget to include a countdown timer.
+### Overview
+
+Multiple choice trivia game created with JavaScript and jQuery themed around Nike history.
+
+## Rules & Features
+
+* Once `JUST DO IT` is clicked, user has 60 seconds to guess 10 questions
+
+    * If time runs out, the users score is shown
+
+* Users are allowed to choose one answer per question
+
+* Users score is talied once the submit button is clicked
+
+# History
+
+Created on 5/21/17
+
+# License
+
+MIT
